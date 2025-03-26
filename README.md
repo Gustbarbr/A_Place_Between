@@ -8,7 +8,7 @@ Developed by **Gustavo Gomes Barbosa**, **Alan Daiki Suga**, **Fernando Milani V
 
 # Level Design
 
-#Inspirations
+# Inspirations
 
 # Credits
 
