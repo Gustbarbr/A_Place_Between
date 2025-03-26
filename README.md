@@ -2,15 +2,15 @@
 
 Developed by **Gustavo Gomes Barbosa**, **Alan Daiki Suga**, **Fernando Milani Venerando** and **Cauan Vinicius Espinha de Sousa** for University FEI.
 
-# History
+**History**
 
-# Mechanics
+**Mechanics**
 
-# Level Design
+**Level Design**
 
-# Inspirations
+**Inspirations**
 
-# Credits
+**Credits**
 
 * Gustavo Gomes Barbosa: Programmer and Game Designer
 * Fernando Milani Venerando: Artist and Game Designer
