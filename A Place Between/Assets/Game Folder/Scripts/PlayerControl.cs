@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    // Movimentacao
-    [HideInInspector]
-    public float movementSpeed = 5f;
     Rigidbody2D rb;
+    Animator animator;
+
+    // Movimentacao
+    public float movementSpeed = 5f;
+    bool walk;
 
     // Variavel para capturar o objeto "Lantern"
     public Transform lantern;
@@ -23,6 +25,7 @@ public class PlayerControl : MonoBehaviour
     {
         // Guarda o componente RigidBody2D na variavel
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -33,6 +36,16 @@ public class PlayerControl : MonoBehaviour
 
         // Atualiza a lanterna para apontar para a direcao do mouse
         lantern.up = direction;
+
+        Debug.Log(direction);
+
+        // Muda a animaÃ§Ã£o com base na direÃ§Ã£o do mouse
+        if(direction.x > -0.5 && direction.x < 0.5 && direction.y >= 0 && walk == true){
+            animator.SetFloat("VelocityUp", 1);
+        }
+        else{
+            animator.SetFloat("VelocityUp", 0);
+        }
 
         // Movimenta o jogador
         MovePlayer();
@@ -58,6 +71,14 @@ public class PlayerControl : MonoBehaviour
 
         // Define a velocidade do jogador
         rb.velocity = new Vector2(horizontalMovement, verticalMovement);
+
+        if(horizontalMovement != 0 || verticalMovement != 0){
+            walk = true;
+        }
+
+        else{
+            walk = false;
+        }
     }
 
     void Fire()
@@ -72,7 +93,7 @@ public class PlayerControl : MonoBehaviour
         Vector2 fireDirection = (new Vector2(mousePosition.x, mousePosition.y) - (Vector2)transform.position).normalized;
 
         // Ajusta a velocidade diretamente na direcao do mouse
-        bullet.velocity = fireDirection * projectileSpeed;  // Movimenta a bala com a velocidade máxima na direção do mouse
+        bullet.velocity = fireDirection * projectileSpeed;  // Movimenta a bala com a velocidade mï¿½xima na direï¿½ï¿½o do mouse
 
         // Reseta o tempo de recarga do ataque
         attackTimer = 0;
