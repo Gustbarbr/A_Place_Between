@@ -9,7 +9,7 @@ public class PlayerControl : MonoBehaviour
 
     // Movimentacao
     public float movementSpeed = 5f;
-    bool walk;
+    public bool walk;
 
     // Variavel para capturar o objeto "Lantern"
     public Transform lantern;
@@ -38,16 +38,7 @@ public class PlayerControl : MonoBehaviour
         lantern.up = direction;
 
         Debug.Log(direction);
-
-        // Muda a animação com base na direção do mouse
-        if(direction.x > -0.5 && direction.x < 0.5 && direction.y >= 0 && walk == true){
-            animator.SetFloat("VelocityUp", 1);
-        }
-        else{
-            animator.SetFloat("VelocityUp", 0);
-        }
-
-        // Movimenta o jogador
+        // Movimenta o player
         MovePlayer();
 
         // Define o botao de ataque
@@ -62,6 +53,21 @@ public class PlayerControl : MonoBehaviour
             Fire();
         }
     }
+
+    /*void Direction()
+    {
+
+        // Muda a animação com base na direção do mouse (olha para cima)
+        if (direction.x > -0.5 && direction.x < 0.5 && direction.y >= 0 && walk == true)
+        {
+            animator.SetFloat("VelocityUp", 1);
+        }
+        else if (direction.x > -0.5 && direction.x < 0.5 && direction.y >= 0 && walk == false)
+        {
+            animator.SetFloat("VelocityUp", 0);
+            animator.SetBool("IdleUp", true);
+        }
+    }*/
 
     void MovePlayer()
     {
