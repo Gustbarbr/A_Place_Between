@@ -37,7 +37,6 @@ public class PlayerControl : MonoBehaviour
         // Atualiza a lanterna para apontar para a direcao do mouse
         lantern.up = direction;
 
-        Debug.Log(direction);
         // Movimenta o player
         MovePlayer();
 
@@ -78,13 +77,9 @@ public class PlayerControl : MonoBehaviour
         // Define a velocidade do jogador
         rb.velocity = new Vector2(horizontalMovement, verticalMovement);
 
-        if(horizontalMovement != 0 || verticalMovement != 0){
-            walk = true;
-        }
-
-        else{
-            walk = false;
-        }
+        Vector2 direction = new Vector2(horizontalMovement, verticalMovement);
+        Debug.Log(direction.magnitude);
+        FindObjectOfType<PlayerAnimations>().SetDirection(direction);
     }
 
     void Fire()
