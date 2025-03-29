@@ -37,6 +37,9 @@ public class PlayerControl : MonoBehaviour
         // Atualiza a lanterna para apontar para a direcao do mouse
         lantern.up = direction;
 
+        // Define a direção da lanterna como ponto para onde o player irá olhar
+        FindObjectOfType<PlayerAnimations>().SetDirection(direction);
+
         // Movimenta o player
         MovePlayer();
 
@@ -53,22 +56,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    /*void Direction()
-    {
-
-        // Muda a animação com base na direção do mouse (olha para cima)
-        if (direction.x > -0.5 && direction.x < 0.5 && direction.y >= 0 && walk == true)
-        {
-            animator.SetFloat("VelocityUp", 1);
-        }
-        else if (direction.x > -0.5 && direction.x < 0.5 && direction.y >= 0 && walk == false)
-        {
-            animator.SetFloat("VelocityUp", 0);
-            animator.SetBool("IdleUp", true);
-        }
-    }*/
-
-    void MovePlayer()
+    public void MovePlayer()
     {
         // Guarda os valores de entrada horizontal e vertical
         float horizontalMovement = Input.GetAxisRaw("Horizontal") * movementSpeed;
@@ -77,9 +65,14 @@ public class PlayerControl : MonoBehaviour
         // Define a velocidade do jogador
         rb.velocity = new Vector2(horizontalMovement, verticalMovement);
 
-        Vector2 direction = new Vector2(horizontalMovement, verticalMovement);
-        Debug.Log(direction.magnitude);
-        FindObjectOfType<PlayerAnimations>().SetDirection(direction);
+        if (horizontalMovement != 0 || verticalMovement != 0) {
+            walk = true;
+        }
+
+        else
+        {
+            walk = false;
+        }
     }
 
     void Fire()

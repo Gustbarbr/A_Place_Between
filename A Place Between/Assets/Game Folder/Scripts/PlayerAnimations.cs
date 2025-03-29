@@ -8,6 +8,8 @@ public class PlayerAnimations : MonoBehaviour
 
     Animator animator;
 
+    PlayerControl playerControl;
+
     // Armazena todas as anima��es de idle do animator
     public string[] idleAnimations = { "PlayerIdleUp", "PlayerIdleUpLeft", "PlayerIdleLeft", "PlayerIdleDownLeft", "PlayerIdleDown", "PlayerIdleDownRight", "PlayerIdleRight", "PlayerIdleUpRight" };
     // Armazena todas as anima��es de andar do animator
@@ -18,6 +20,7 @@ public class PlayerAnimations : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        playerControl = GetComponent<PlayerControl>();
 
         float result1 = Vector2.SignedAngle(Vector2.up, Vector2.right);
         float result2 = Vector2.SignedAngle(Vector2.up, Vector2.left);
@@ -29,14 +32,15 @@ public class PlayerAnimations : MonoBehaviour
     {
         string[] directionArray = null;
         // Verifica se o player est� parado, ou seja, se está idle
-        if(playerDirection.magnitude < 0.01)
+        if(playerControl.walk == false)
         {
             directionArray = idleAnimations;
+            // Atualiza a animação de correr com base na direção da lanterna, conforme a lanterna muda de posição, a animação também muda
+            lastDirection = DirectionToIndex(playerDirection);
         }
         else{
             directionArray = walkAnimations;
 
-            // Procura o indice da animação referente
             lastDirection = DirectionToIndex(playerDirection);
         }
 
