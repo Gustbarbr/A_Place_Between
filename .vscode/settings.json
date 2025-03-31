@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "A Place Between.sln"
+    "dotnet.defaultSolution": "A_Place_Between.sln"
 }

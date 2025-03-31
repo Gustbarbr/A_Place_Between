@@ -26,9 +26,10 @@ public class PlayerControl : MonoBehaviour
         // Guarda o componente RigidBody2D na variavel
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        lantern.gameObject.SetActive(false);
     }
 
-    void FixedUpdate()
+    void Update()
     {
         // Captura a posicao do mouse
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -36,6 +37,10 @@ public class PlayerControl : MonoBehaviour
 
         // Atualiza a lanterna para apontar para a direcao do mouse
         lantern.up = direction;
+
+        if(Input.GetKeyDown(KeyCode.Q)){
+            lantern.gameObject.SetActive(!lantern.gameObject.activeSelf);
+        }
 
         // Define a direção da lanterna como ponto para onde o player irá olhar
         FindObjectOfType<PlayerAnimations>().SetDirection(direction);
