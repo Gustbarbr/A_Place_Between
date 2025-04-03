@@ -14,7 +14,10 @@
      
             **O jogador perde ao ter seus pontos de vida zerados.**
 
-    - Quais são as regrsas do jogo?
+    - Quais são as regras do jogo?
+ 
+        
+
     - Quais são os procedimentos do jogo?
     - Quais os recursos do jogo?
     - Quais os limites do jogo?
