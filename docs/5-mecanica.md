@@ -16,7 +16,7 @@
 
     - Quais são as regras do jogo?
  
-        
+        O jogador pode se mover pressionando "W", "A", "S", "D" ou as setas do teclado. É possível atirar com uma arma de fogo ao presionar o botão esquerdo do mouse, e só é possível atirar se o jogador tiver munição. É possível realizar ataques corpo a corpo ao pressionar "C". É possível ativar ou desativar a lanterna pressionando "Q". Além disso, caso o jogador tome dano, ele irá se curar lentamente se ficar 5 segundos sem tomar outro dano.
 
     - Quais são os procedimentos do jogo?
     - Quais os recursos do jogo?
