@@ -1,7 +1,7 @@
 ### Introdução
 - Qual a ideia principal do seu jogo?
 
-O jogo (nome do jogo) terá foco no gênero survival, ação, terror e aventura, onde o jogador deverá explorar o mundo bizarro em que se encontra e sobreviver ao ambiente hostil para encontrar uma maneira de sair desse lugar. O jogo também terá um toque de RPG, possibilitando o jogador a testar novas combinações e aumentar suas chances de escapar desse lugar misterioso.
+  O jogo (nome do jogo) terá foco no gênero survival, ação, terror e aventura, onde o jogador deverá explorar o mundo bizarro em que se encontra e sobreviver ao ambiente hostil para encontrar uma maneira de sair desse lugar. O jogo também terá um toque de RPG, possibilitando o jogador a testar novas combinações e aumentar suas chances de escapar desse lugar misterioso.
   
 - Que tipo de experiência você quer dar para o seu jogador?
   
