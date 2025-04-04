@@ -88,6 +88,7 @@ public class PlayerControl : MonoBehaviour
 
         // Define a direção da lanterna como ponto para onde o player irá olhar
         FindObjectOfType<PlayerAnimations>().SetDirection(direction);
+
     }
 
     public void MovePlayer()
