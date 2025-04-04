@@ -16,7 +16,8 @@
 
     - Quais são as regras do jogo?
  
-        **O jogador pode se mover pressionando "W", "A", "S", "D" ou as setas do teclado. É possível atirar com uma arma de fogo ao presionar o botão esquerdo do mouse, e só é possível atirar se o jogador tiver munição. Também é possível realizar ataques corpo a corpo ao pressionar "C". Existe uma lanterna UV que pode ser ativada ou desativada pressionando "Q", onde ela só será ativada se o jogador tiver pontos de FL (FlashLight), e se os pontos de FL chegarem a 0 a lanterna só poderá ser reativada se os pontos de FL forem maiores ou iguais a 10% do total. Além disso, caso o jogador tome dano, ele irá se curar lentamente se ficar 5 segundos sem tomar outro dano.**
+        **O jogador pode se mover pressionando "W", "A", "S", "D" ou as setas do teclado. É possível atirar com uma arma de fogo ao presionar o botão esquerdo do mouse, e só é possível atirar se o jogador tiver munição. Também é possível realizar ataques corpo a corpo ao pressionar "C". Existe uma lanterna UV que pode ser ativada ou desativada pressionando "Q", onde ela só será ativada se o jogador tiver pontos de FL (FlashLight), e se os pontos de FL chegarem a 0 a lanterna só poderá ser reativada se os pontos de FL forem maiores ou iguais a 10% do total. Além disso, caso o jogador tome dano, ele irá se curar lentamente se ficar 5 segundos sem tomar outro dano.
+      Existiré um amuleto que pode ser coletado de dois chefes, onde cada um possui metade do amuleto inteiro. Com ele será possivel desbloquear um dos finais do jogo.**
 
     - Quais são os procedimentos do jogo?
     - Quais os recursos do jogo?
