@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class PlayerControl : MonoBehaviour
     public float movementSpeed = 5f;
     public bool walk;
 
-    // Variavel para capturar o objeto "Lantern"
-    public Transform lantern;
+    // Variavel para capturar o objeto "Flashlight"
+    public Transform flashlight;
 
     // Ataque
     public Rigidbody2D bulletPrefab;
@@ -21,29 +22,20 @@ public class PlayerControl : MonoBehaviour
     public float attackTimer;
     float projectileSpeed = 50f;
 
+    public Slider flashlightSlider;
+
     void Start()
     {
         // Guarda o componente RigidBody2D na variavel
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        lantern.gameObject.SetActive(false);
+        flashlight.gameObject.SetActive(false);
     }
 
     void Update()
     {
-        // Captura a posicao do mouse
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 direction = (new Vector2(mousePosition.x, mousePosition.y) - (Vector2)transform.position).normalized;
-
-        // Atualiza a lanterna para apontar para a direcao do mouse
-        lantern.up = direction;
-
-        if(Input.GetKeyDown(KeyCode.Q)){
-            lantern.gameObject.SetActive(!lantern.gameObject.activeSelf);
-        }
-
-        // Define a direção da lanterna como ponto para onde o player irá olhar
-        FindObjectOfType<PlayerAnimations>().SetDirection(direction);
+        // Cuida da posição do mouse e tudo relacionado a lanterna
+        ViewAndLanternDirection();
 
         // Movimenta o player
         MovePlayer();
@@ -59,6 +51,43 @@ public class PlayerControl : MonoBehaviour
         {
             Fire();
         }
+    }
+
+    public void ViewAndLanternDirection()
+    {
+        // Captura a posicao do mouse
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (new Vector2(mousePosition.x, mousePosition.y) - (Vector2)transform.position).normalized;
+
+        // Atualiza a lanterna para apontar para a direcao do mouse
+        flashlight.up = direction;
+
+        // A lanterna só liga se tiver com a barr de FL (FlashLight) 10% preenchida e se ela estiver desligada
+        if (Input.GetKeyDown(KeyCode.Q) && flashlightSlider.value >= 0.1f && flashlight.gameObject.activeSelf == false)
+        {
+            flashlight.gameObject.SetActive(true);
+        }
+
+        // Desliga a lanterna se ela estiver ligada e o "Q" for pressionado ou se a barra de FL esvaziar
+        else if (Input.GetKeyDown(KeyCode.Q) && flashlight.gameObject.activeSelf == true || flashlightSlider.value <= 0)
+        {
+            flashlight.gameObject.SetActive(false);
+        }
+
+        // Consome FL caso a lanterna esteja ligada
+        if (flashlight.gameObject.activeSelf == true)
+        {
+            flashlightSlider.value -= Time.deltaTime / 10;
+        }
+
+        // Recupera FL automaticamente se a lanterna estiver desligada
+        else if (flashlight.gameObject.activeSelf == false)
+        {
+            flashlightSlider.value += Time.deltaTime * 0.1f;
+        }
+
+        // Define a direção da lanterna como ponto para onde o player irá olhar
+        FindObjectOfType<PlayerAnimations>().SetDirection(direction);
     }
 
     public void MovePlayer()
