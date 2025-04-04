@@ -43,7 +43,7 @@
     - Quais os resultados do jogo?
         - Como ele termina depois da vitoria
      
-      **O jogador receberá uma cutscene final após derrotar o chefe C, onde ele pode conseguir um de dois possíveis finais, dependendo se ele está usando ou não o amuleto.**
+          **O jogador receberá uma cutscene final após derrotar o chefe C, onde ele pode conseguir um de dois possíveis finais, dependendo se ele está usando ou não o amuleto.**
   
         - Como ele termina depois da derrota
      
