@@ -31,8 +31,21 @@
       * Ao derrotar os chefes A e B, cada um deixará uma metade do amuleto cair, que será coletada automaticamente. No chefe C esse amuleto pode ser equipado ou não.
 
     - Quais os recursos do jogo?
+ 
+      * Barra de vida (HP)
+      * Carga da lanterna (FL)
+      * Munição
+
     - Quais os limites do jogo?
+
+      **O jogo possui barreiras visíveis nas áreas mais abertas do mapa, que serão árvores, cercas, paredes e prédios, onde existem colisores que impedem a passagem do jogador.**
+
     - Quais os resultados do jogo?
         - Como ele termina depois da vitoria
+     
+        * O jogador receberá uma cutscene final após derrotar o chefe C, onde ele pode conseguir um de dois possíveis finais, dependendo se ele está usando ou não o amuleto.
+  
         - Como ele termina depois da derrota
+     
+          **Se o jogador morrer para um inimigo comum, uma tela de morte será exibida e ele precisará reiniciar o jogo do zero. Caso morra no chefe C ele receberá uma cutscene extra e etambém precisará recomeçar o jogo do início.**
 
