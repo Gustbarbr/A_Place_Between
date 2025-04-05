@@ -7,19 +7,14 @@
   para tornar o jogo mais imersivo. Não haverá NPC neste jogo, exceto em cenas de cutsenes. 
 
 - História
+    O personagem foi usado como oferenda em um ritual desconhecido e acaba perdendo a consiência,
+  ao acordar, o protagonista percebe que é o hospital da cidade, mas algo não parece certo. Você deve explorar a cidade
+  e desvendar o que está acontecendo naquele lugar. Lembre-se que os recursos são limitados e haverá momentos que você deve optar
+  por lutar o fugir. Nessa cidade estranha, existem diversos segredos que podem dar pistas sobre o local que você se encontra ou te dar alguma vantagem de sobrevivência.
+    A exploração é muito importante, os itens secretos podem direcionar o jogador à finais alternativos.
 
-    - Premissa
-      
-        - Qual o plano de fundo do seu jogo? Onde se passa?
-        - O que deve ser contado antes do jogador assumir o controle?
-
-    - Como o Jogo começa?
-    - Como o jogo evolui?
-        - Novas abilidades X Novos desafios
-    - Como o jogo termina? 
-        - Quais os possíveis finais da sua história?
 
 - Sentidos
-    - Quais os sentidos dos jogadores você gostaria de explorar no seu jogo?
-    - O jogo vai ter elementos visuais, sonoros, táteis, degustativos, olfativos?
-        - Como esses elementos são apresentados para o jogador?
+      A Place Between irá explorar o medo e o suspense, usando-os como ferramenta para guiar o jogador para locais importantes
+      O ambiente será mórbido com intenção de manter o jogador sempre apreensivo, com a ideia de que pode ser atacado a qualquer momento, e realmente pode.
+      A luz natural é inexistente neste mundo, um ambiente escuro e hostil, com muitos inimigos furtivos que você só perceberá aproximando pelo som.
