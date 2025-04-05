@@ -1,14 +1,15 @@
 ### Estética
 
-- Personagens 
-    - Quais os personagens que farão parte do jogo?
-        - Ex: Protagonistas, Antagonistas, Personagens não jogaveis (NPCs) ...
-    - Qual o plano de fundo do(s) seu(s) personagem(s)?
-    - Quais as características mais importantes para serem adicionadas no(s) personagem(s)?
+- Personagens
+    O protagonista sem identidade, exala um ar misterioso sobre sua personalidade. Ele permanecerá um mistério
+  até para os jogadores.
+  Os vilões são, principalmente, mortos-vivos, com uma grande variedade de tipos de entidades
+  para tornar o jogo mais imersivo. Não haverá NPC neste jogo, exceto em cenas de cutsenes. 
 
 - História
 
     - Premissa
+      
         - Qual o plano de fundo do seu jogo? Onde se passa?
         - O que deve ser contado antes do jogador assumir o controle?
 
