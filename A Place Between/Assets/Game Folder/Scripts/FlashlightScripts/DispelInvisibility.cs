@@ -4,22 +4,26 @@ using UnityEngine;
 
 public class DispelInvisibility : MonoBehaviour
 {
-    EnemyControl enemyMovement;
+    private SpriteRenderer enemySpriteRenderer;
 
     void Start()
     {
-        enemyMovement = FindObjectOfType<EnemyControl>();
+        enemySpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        // Quando o inimigo entra na luz, se torna visível
         if (collider.CompareTag("InvisibleEnemy"))
-        enemyMovement.GetComponent<SpriteRenderer>().enabled = true;
+            // Torna o inimigo visível
+            collider.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     void OnTriggerExit2D(Collider2D collider)
     {
+        // Quando o inimigo sai da luz, se torna invisível
         if (collider.CompareTag("InvisibleEnemy"))
-        enemyMovement.GetComponent<SpriteRenderer>().enabled = false;
+        // Torna o inimigo invisível novamente
+        collider.GetComponent<SpriteRenderer>().enabled = false;
     }
 }
