@@ -7,9 +7,10 @@ public class PlayerControl : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator animator;
+    DamageOnEnemy damageEnemy;
 
     // Movimentacao
-    public float movementSpeed = 5f;
+    private float movementSpeed = 3;
     public bool walk;
 
     // Variavel para capturar o objeto "Flashlight"
@@ -24,11 +25,18 @@ public class PlayerControl : MonoBehaviour
 
     public Slider flashlightSlider;
 
+    // Flags dos chapéus
+    public bool hatOfAviator = false;
+    bool hatOfAviatorEquipped = false;
+    public bool hatOfWarlord = false;
+    bool hatOfWarlordEquipped = false;
+
     void Start()
     {
         // Guarda o componente RigidBody2D na variavel
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        damageEnemy = FindObjectOfType<DamageOnEnemy>();
         flashlight.gameObject.SetActive(false);
     }
 
@@ -39,6 +47,9 @@ public class PlayerControl : MonoBehaviour
 
         // Movimenta o player
         MovePlayer();
+
+        // Equipar o chapéu
+        EquipHat();
 
         // Define o botao de ataque
         bool fire = Input.GetKey(KeyCode.Mouse0);
@@ -126,6 +137,25 @@ public class PlayerControl : MonoBehaviour
 
         // Reseta o tempo de recarga do ataque
         attackTimer = 0;
+    }
+
+    void EquipHat()
+    {
+        // Equipar chapéu de aviador (velocidade)
+        if(Input.GetKeyDown(KeyCode.Alpha8)){
+            hatOfAviatorEquipped = true;
+            if(hatOfAviator == true && hatOfAviatorEquipped == true){
+                movementSpeed += 2.5f;
+            }
+        }
+
+        // Equipar chapéu de chefe de guerra (aumento de dano)
+        if(Input.GetKeyDown(KeyCode.Alpha9)){
+            hatOfWarlordEquipped = true;
+            if(hatOfWarlord == true && hatOfWarlordEquipped == true){
+                damageEnemy.damage = 2.5f;
+            }
+        }
     }
 
 }
