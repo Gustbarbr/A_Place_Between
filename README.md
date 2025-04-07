@@ -4,9 +4,9 @@ Trabalho de Desenvolvimento de Jogos apresentado ao Centro Universitário [FEI](
 ## Componentes do Grupo
 
 - Alan Daiki Suga
-- Cauan Vinicius Espinha de Sousa
+- Fernando Milani Venerando
 - Gustavo Gomes Barbosa
-- Cauan Vinicius Espinha de Sousa
+- Cauan
 
 ## Tópicos
 - [Introdução](./docs/1-introducao.md)
