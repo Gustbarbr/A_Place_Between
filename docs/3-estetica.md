@@ -1,7 +1,7 @@
 ### Estética
 
 - Personagens
-    O protagonista sem identidade, exala um ar misterioso sobre sua personalidade. Ele permanecerá um mistério
+    O protagonista chamado Saclam, exala um ar misterioso sobre sua personalidade. Sua origem permanecerá um mistério
   até para os jogadores.
   Os vilões são, principalmente, mortos-vivos, com uma grande variedade de tipos de entidades
   para tornar o jogo mais imersivo.
