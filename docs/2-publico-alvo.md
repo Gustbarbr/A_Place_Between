@@ -1,7 +1,7 @@
 ### Público Alvo
 - Determine o seu público alvo.
 
-  O jogo pensado foi desenvolvido para jogadores que gostam de survival horror, onde os jogadores compreendem que devem ter cautela ao avançar no jogo sem gastar todas as munições e não se envolver em grandes riscos que possam comprometer o protagonista.
+  O jogo pensado foi desenvolvido para jogadores que gostam de survival horror e de jogos desafiadores, onde os jogadores compreendem que devem ter cautela ao avançar no jogo sem gastar todas as munições e não se envolver em grandes riscos que possam comprometer o protagonista.
 
 - Que tipo de jogo mais agrada o seu público alvo?
 
