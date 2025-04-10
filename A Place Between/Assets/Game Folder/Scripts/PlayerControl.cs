@@ -25,11 +25,16 @@ public class PlayerControl : MonoBehaviour
 
     public Slider flashlightSlider;
 
-    // Flags dos chapéus
+    // Flags do chapéu de velocidade
     public bool hatOfAviator = false;
-    bool hatOfAviatorEquipped = false;
+    public bool hatOfAviatorEquipped = false;
+    // Flags do chapéu de aumento de dano do player
     public bool hatOfWarlord = false;
-    bool hatOfWarlordEquipped = false;
+    public bool hatOfWarlordEquipped = false;
+    // Flags do chapéu de redução de custo de FL da lanterna
+    public bool hatOfMiner = false;
+    public bool hatOfMinerEquipped = false;
+    public bool reduceCost = false;
 
     void Start()
     {
@@ -50,6 +55,12 @@ public class PlayerControl : MonoBehaviour
 
         // Equipar o chapéu
         EquipHat();
+
+        // Checa a todo instante se o chapéu ainda está equipado ou não
+        if (!hatOfMinerEquipped)
+        {
+            reduceCost = false;
+        }
 
         // Define o botao de ataque
         bool fire = Input.GetKey(KeyCode.Mouse0);
@@ -86,13 +97,19 @@ public class PlayerControl : MonoBehaviour
         }
 
         // Consome FL caso a lanterna esteja ligada
-        if (flashlight.gameObject.activeSelf == true)
+        if (flashlight.gameObject.activeSelf && !reduceCost)
         {
             flashlightSlider.value -= Time.deltaTime / 10;
         }
 
+        // Consome FL caso a lanterna esteja ligada
+        else if (flashlight.gameObject.activeSelf && reduceCost)
+        {
+            flashlightSlider.value -= Time.deltaTime / 20;
+        }
+
         // Recupera FL automaticamente se a lanterna estiver desligada
-        else if (flashlight.gameObject.activeSelf == false)
+        if (!flashlight.gameObject.activeSelf)
         {
             flashlightSlider.value += Time.deltaTime * 0.1f;
         }
@@ -144,16 +161,32 @@ public class PlayerControl : MonoBehaviour
         // Equipar chapéu de aviador (velocidade)
         if(Input.GetKeyDown(KeyCode.Alpha8)){
             hatOfAviatorEquipped = true;
-            if(hatOfAviator == true && hatOfAviatorEquipped == true){
+            hatOfWarlordEquipped = false;
+            hatOfMinerEquipped = false;
+            if (hatOfAviator && hatOfAviatorEquipped){
                 movementSpeed += 2.5f;
             }
         }
 
         // Equipar chapéu de chefe de guerra (aumento de dano)
         if(Input.GetKeyDown(KeyCode.Alpha9)){
+            hatOfAviatorEquipped = false;
             hatOfWarlordEquipped = true;
-            if(hatOfWarlord == true && hatOfWarlordEquipped == true){
-                damageEnemy.damage = 2.5f;
+            hatOfMinerEquipped = false;
+            if (hatOfWarlord && hatOfWarlordEquipped){
+                damageEnemy.damage *= 2;
+            }
+        }
+
+        // Equipar chapéu de mineiro (redução do custo de FL)
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            hatOfWarlordEquipped = false;
+            hatOfAviatorEquipped = false;
+            hatOfMinerEquipped = true;
+            if (hatOfMiner && hatOfMinerEquipped)
+            {
+                reduceCost = true;
             }
         }
     }
