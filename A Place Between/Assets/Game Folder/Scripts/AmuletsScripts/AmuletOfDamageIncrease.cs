@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HatOfVelocity : MonoBehaviour
+public class HatOfDamageIncrease : MonoBehaviour
 {
     PlayerControl player;
 
@@ -12,7 +12,7 @@ public class HatOfVelocity : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider){
         if(collider.CompareTag("Player")){
-            player.hatOfAviator = true;
+            player.AmuletOfDamageIncrease = true;
         }
     }
 }

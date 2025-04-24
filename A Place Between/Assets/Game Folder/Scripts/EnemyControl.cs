@@ -10,6 +10,7 @@ public class EnemyControl : MonoBehaviour
 
     public float hp = 10f;
 
+
     void Update()
     {
         // Guarda a distancia entre o inimigo e o player
