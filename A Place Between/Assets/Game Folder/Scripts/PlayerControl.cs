@@ -25,15 +25,15 @@ public class PlayerControl : MonoBehaviour
 
     public Slider flashlightSlider;
 
-    // Flags do chapéu de velocidade
-    public bool hatOfAviator = false;
-    public bool hatOfAviatorEquipped = false;
-    // Flags do chapéu de aumento de dano do player
-    public bool hatOfWarlord = false;
-    public bool hatOfWarlordEquipped = false;
-    // Flags do chapéu de redução de custo de FL da lanterna
-    public bool hatOfMiner = false;
-    public bool hatOfMinerEquipped = false;
+    // Flags do amuleto de velocidade
+    public bool AmuletOfVelocity = false;
+    public bool AmuletOfVelocityEquipped = false;
+    // Flags do amuleto de aumento de dano do player
+    public bool AmuletOfDamageIncrease = false;
+    public bool AmuletOfDamageIncreaseEquipped = false;
+    // Flags do amuleto de redução de custo de FL da lanterna
+    public bool AmuletOfFLCostReduction = false;
+    public bool AmuletOfFLCostReductionEquipped = false;
     public bool reduceCost = false;
 
     void Start()
@@ -53,11 +53,11 @@ public class PlayerControl : MonoBehaviour
         // Movimenta o player
         MovePlayer();
 
-        // Equipar o chapéu
-        EquipHat();
+        // Equipar o amuleto
+        EquipAmulet();
 
         // Checa a todo instante se o chapéu ainda está equipado ou não
-        if (!hatOfMinerEquipped)
+        if (!AmuletOfFLCostReductionEquipped)
         {
             reduceCost = false;
         }
@@ -156,24 +156,24 @@ public class PlayerControl : MonoBehaviour
         attackTimer = 0;
     }
 
-    void EquipHat()
+    void EquipAmulet()
     {
-        // Equipar chapéu de aviador (velocidade)
+        // Equipar amuleto de aumento de velocidade
         if(Input.GetKeyDown(KeyCode.Alpha8)){
-            hatOfAviatorEquipped = true;
-            hatOfWarlordEquipped = false;
-            hatOfMinerEquipped = false;
-            if (hatOfAviator && hatOfAviatorEquipped){
+            AmuletOfVelocityEquipped = true;
+            AmuletOfDamageIncreaseEquipped = false;
+            AmuletOfFLCostReductionEquipped = false;
+            if (AmuletOfVelocity && AmuletOfVelocityEquipped){
                 movementSpeed += 2.5f;
             }
         }
 
         // Equipar chapéu de chefe de guerra (aumento de dano)
         if(Input.GetKeyDown(KeyCode.Alpha9)){
-            hatOfAviatorEquipped = false;
-            hatOfWarlordEquipped = true;
-            hatOfMinerEquipped = false;
-            if (hatOfWarlord && hatOfWarlordEquipped){
+            AmuletOfVelocityEquipped = false;
+            AmuletOfDamageIncreaseEquipped = true;
+            AmuletOfFLCostReductionEquipped = false;
+            if (AmuletOfDamageIncrease && AmuletOfDamageIncreaseEquipped){
                 damageEnemy.damage *= 2;
             }
         }
@@ -181,10 +181,10 @@ public class PlayerControl : MonoBehaviour
         // Equipar chapéu de mineiro (redução do custo de FL)
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            hatOfWarlordEquipped = false;
-            hatOfAviatorEquipped = false;
-            hatOfMinerEquipped = true;
-            if (hatOfMiner && hatOfMinerEquipped)
+            AmuletOfVelocityEquipped = false;
+            AmuletOfDamageIncreaseEquipped = false;
+            AmuletOfFLCostReductionEquipped = true;
+            if (AmuletOfFLCostReduction && AmuletOfFLCostReductionEquipped)
             {
                 reduceCost = true;
             }

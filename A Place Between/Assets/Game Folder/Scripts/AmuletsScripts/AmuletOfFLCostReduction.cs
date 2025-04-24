@@ -15,7 +15,7 @@ public class HatOfFLCostReduction : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
-            player.hatOfMiner = true;
+            player.AmuletOfFLCostReduction = true;
         }
     }
 }
