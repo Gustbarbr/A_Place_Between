@@ -10,8 +10,9 @@ public class PlayerControl : MonoBehaviour
     DamageOnEnemy damageEnemy;
 
     // Movimentacao
-    private float movementSpeed = 3;
+    public float movementSpeed = 3;
     public bool walk;
+    public bool moveSpeedIncreased = false;
 
     // Variavel para capturar o objeto "Flashlight"
     public Transform flashlight;
@@ -56,12 +57,6 @@ public class PlayerControl : MonoBehaviour
         // Equipar o amuleto
         EquipAmulet();
 
-        // Checa a todo instante se o chapéu ainda está equipado ou não
-        if (!AmuletOfFLCostReductionEquipped)
-        {
-            reduceCost = false;
-        }
-
         // Define o botao de ataque
         bool fire = Input.GetKey(KeyCode.Mouse0);
 
@@ -73,6 +68,26 @@ public class PlayerControl : MonoBehaviour
         {
             Fire();
         }
+
+        // Se o amuleto de velocidade não estiver equipado, a velocidade volta ao normal
+        if (!AmuletOfVelocityEquipped)
+        {
+            movementSpeed = 3;
+            moveSpeedIncreased = false;
+        }
+
+        // Se o amuleto de redução de custo de bateria não estiver equipado, a bateria é gasta normalmente
+        if (!AmuletOfFLCostReductionEquipped)
+        {
+            reduceCost = false;
+        }
+
+        // Se o amuleto de aumento de dano não estiver equipado, o dano volta ao normal
+        if (!AmuletOfDamageIncreaseEquipped)
+        {
+            damageEnemy.damage = 1;
+        }
+
     }
 
     public void ViewAndLanternDirection()
@@ -163,8 +178,9 @@ public class PlayerControl : MonoBehaviour
             AmuletOfVelocityEquipped = true;
             AmuletOfDamageIncreaseEquipped = false;
             AmuletOfFLCostReductionEquipped = false;
-            if (AmuletOfVelocity && AmuletOfVelocityEquipped){
+            if (AmuletOfVelocity && AmuletOfVelocityEquipped && !moveSpeedIncreased){
                 movementSpeed += 2.5f;
+                moveSpeedIncreased = true;
             }
         }
 

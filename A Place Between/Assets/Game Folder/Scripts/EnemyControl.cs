@@ -10,6 +10,12 @@ public class EnemyControl : MonoBehaviour
 
     public float hp = 10f;
 
+    void Start()
+    {
+        GameObject playerObj = GameObject.FindWithTag("Player");
+        targetPlayer = playerObj.transform;
+    }
+
 
     void Update()
     {

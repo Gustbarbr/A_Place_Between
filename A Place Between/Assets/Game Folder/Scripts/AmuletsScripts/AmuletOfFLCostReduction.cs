@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HatOfFLCostReduction : MonoBehaviour
+public class AmuletOfFLCostReduction : MonoBehaviour
 {
     PlayerControl player;
 
@@ -16,6 +16,7 @@ public class HatOfFLCostReduction : MonoBehaviour
         if (collider.CompareTag("Player"))
         {
             player.AmuletOfFLCostReduction = true;
+            Destroy(this.gameObject);
         }
     }
 }

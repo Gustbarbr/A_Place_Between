@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HatOfDamageIncrease : MonoBehaviour
+public class AmuletOfDamageIncrease : MonoBehaviour
 {
     PlayerControl player;
 
@@ -13,6 +13,7 @@ public class HatOfDamageIncrease : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider){
         if(collider.CompareTag("Player")){
             player.AmuletOfDamageIncrease = true;
+            Destroy(this.gameObject);
         }
     }
 }
