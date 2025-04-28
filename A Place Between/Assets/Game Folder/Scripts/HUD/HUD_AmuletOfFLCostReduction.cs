@@ -22,7 +22,7 @@ public class HUD_AmuletOfFLCostReduction : MonoBehaviour
         if (player.AmuletOfVelocityEquipped)
         {
             imagemHUD.enabled = true;
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 animator.SetBool("ChangeAmulet", true);
             }

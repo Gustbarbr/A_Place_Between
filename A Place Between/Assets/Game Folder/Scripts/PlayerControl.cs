@@ -174,7 +174,7 @@ public class PlayerControl : MonoBehaviour
     void EquipAmulet()
     {
         // Equipar amuleto de aumento de velocidade
-        if(Input.GetKeyDown(KeyCode.Alpha8)){
+        if(Input.GetKeyDown(KeyCode.Alpha1)){
             AmuletOfVelocityEquipped = true;
             AmuletOfDamageIncreaseEquipped = false;
             AmuletOfFLCostReductionEquipped = false;
@@ -185,7 +185,7 @@ public class PlayerControl : MonoBehaviour
         }
 
         // Equipar chapéu de chefe de guerra (aumento de dano)
-        if(Input.GetKeyDown(KeyCode.Alpha9)){
+        if(Input.GetKeyDown(KeyCode.Alpha2)){
             AmuletOfVelocityEquipped = false;
             AmuletOfDamageIncreaseEquipped = true;
             AmuletOfFLCostReductionEquipped = false;
@@ -195,7 +195,7 @@ public class PlayerControl : MonoBehaviour
         }
 
         // Equipar chapéu de mineiro (redução do custo de FL)
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             AmuletOfVelocityEquipped = false;
             AmuletOfDamageIncreaseEquipped = false;
