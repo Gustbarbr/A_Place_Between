@@ -8,7 +8,7 @@ public class EnemyControl : MonoBehaviour
     public float speed; // Guarda um dos multilicadores de velocidade
     public float detectionRange; // Alcance de deteccao para iniciar a perseguicao
 
-    public float hp = 10f;
+    public float hp = 5f;
 
     void Start()
     {

@@ -10,32 +10,33 @@ public class PlayerControl : MonoBehaviour
     DamageOnEnemy damageEnemy;
 
     // Movimentacao
-    public float movementSpeed = 3;
-    public bool walk;
-    public bool moveSpeedIncreased = false;
+    float movementSpeed = 3;
+    [HideInInspector] public bool walk;
+    bool moveSpeedIncreased = false;
 
     // Variavel para capturar o objeto "Flashlight"
     public Transform flashlight;
 
     // Ataque
     public Rigidbody2D bulletPrefab;
-    public float attackSpeed = 0.3f;
+    float attackSpeed = 0.3f;
     float attackCooldown = 0.5f;
-    public float attackTimer;
+    float attackTimer;
     float projectileSpeed = 50f;
+    public int ammunation = 10;
 
     public Slider flashlightSlider;
 
     // Flags do amuleto de velocidade
-    public bool AmuletOfVelocity = false;
-    public bool AmuletOfVelocityEquipped = false;
+    [HideInInspector] public bool AmuletOfVelocity = false;
+    [HideInInspector] public bool AmuletOfVelocityEquipped = false;
     // Flags do amuleto de aumento de dano do player
-    public bool AmuletOfDamageIncrease = false;
-    public bool AmuletOfDamageIncreaseEquipped = false;
+    [HideInInspector] public bool AmuletOfDamageIncrease = false;
+    [HideInInspector] public bool AmuletOfDamageIncreaseEquipped = false;
     // Flags do amuleto de redução de custo de FL da lanterna
-    public bool AmuletOfFLCostReduction = false;
-    public bool AmuletOfFLCostReductionEquipped = false;
-    public bool reduceCost = false;
+    [HideInInspector] public bool AmuletOfFLCostReduction = false;
+    [HideInInspector] public bool AmuletOfFLCostReductionEquipped = false;
+    bool reduceCost = false;
 
     void Start()
     {
@@ -64,9 +65,10 @@ public class PlayerControl : MonoBehaviour
         attackTimer += Time.deltaTime;
 
         // Se o botao for pressionado e o tempo de recarga ja passou, chama a funcao de disparo
-        if (fire && attackTimer >= attackCooldown)
+        if (fire && attackTimer >= attackCooldown && ammunation >= 1)
         {
             Fire();
+            ammunation -= 1;
         }
 
         // Se o amuleto de velocidade não estiver equipado, a velocidade volta ao normal
