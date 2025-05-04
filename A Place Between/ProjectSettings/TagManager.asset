@@ -49,3 +49,6 @@ TagManager:
   - name: Apagado
     uniqueID: 609306693
     locked: 0
+  - name: cover
+    uniqueID: 3450527325
+    locked: 0
