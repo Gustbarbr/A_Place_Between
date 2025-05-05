@@ -19,7 +19,7 @@ public class HUD_AmuletOfFLCostReduction : MonoBehaviour
 
     void Update()
     {
-        if (player.AmuletOfFLCostReductionEquipped)
+        if (player.AmuletOfFLCostReduction)
         {
             imagemHUD.enabled = true;
             if (Input.GetKeyDown(KeyCode.Alpha3))

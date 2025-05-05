@@ -15,7 +15,8 @@ public class AddAmmo : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            player.ammunation += Random.Range(1, 10);
+            player.ammunation += Random.Range(1, 15);
+            Destroy(this.gameObject);
         }
     }
 }
