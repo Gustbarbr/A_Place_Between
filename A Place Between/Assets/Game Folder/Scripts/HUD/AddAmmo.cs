@@ -5,10 +5,12 @@ using UnityEngine;
 public class AddAmmo : MonoBehaviour
 {
     PlayerControl player;
+    BulletAmount bulletAmount;
 
     void Start()
     {
         player = FindObjectOfType<PlayerControl>();
+        bulletAmount = FindObjectOfType<BulletAmount>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -16,7 +18,9 @@ public class AddAmmo : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             player.ammunation += Random.Range(1, 15);
-            Destroy(this.gameObject);
+            bulletAmount.UpdateAmmoText();
+            Destroy(gameObject);
         }
     }
 }
+

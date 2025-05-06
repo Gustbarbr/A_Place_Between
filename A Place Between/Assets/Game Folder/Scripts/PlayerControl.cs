@@ -14,6 +14,9 @@ public class PlayerControl : MonoBehaviour
     [HideInInspector] public bool walk;
     bool moveSpeedIncreased = false;
 
+    public Slider hpSlider;
+    bool increaseHP = false;
+
     // Variavel para capturar o objeto "Flashlight"
     public Transform flashlight;
 
@@ -37,6 +40,9 @@ public class PlayerControl : MonoBehaviour
     [HideInInspector] public bool AmuletOfFLCostReduction = false;
     [HideInInspector] public bool AmuletOfFLCostReductionEquipped = false;
     bool reduceCost = false;
+    // Flags do amuleto de incremento de HP
+    [HideInInspector] public bool AmuletOfHPIncrease = false;
+    [HideInInspector] public bool AmuletOfHPIncreaseEquipped = false;
 
     void Start()
     {
@@ -69,6 +75,7 @@ public class PlayerControl : MonoBehaviour
         {
             Fire();
             ammunation -= 1;
+            FindObjectOfType<BulletAmount>().UpdateAmmoText();
         }
 
         // Se o amuleto de velocidade não estiver equipado, a velocidade volta ao normal
@@ -171,6 +178,12 @@ public class PlayerControl : MonoBehaviour
 
         // Reseta o tempo de recarga do ataque
         attackTimer = 0;
+
+        if (increaseHP == false)
+            hpSlider.value -= 0.2f;
+
+        else if (increaseHP == true)
+            hpSlider.value -= 0.1f;
     }
 
     void EquipAmulet()
@@ -180,31 +193,47 @@ public class PlayerControl : MonoBehaviour
             AmuletOfVelocityEquipped = true;
             AmuletOfDamageIncreaseEquipped = false;
             AmuletOfFLCostReductionEquipped = false;
+            AmuletOfHPIncreaseEquipped = false;
             if (AmuletOfVelocity && AmuletOfVelocityEquipped && !moveSpeedIncreased){
                 movementSpeed += 2.5f;
                 moveSpeedIncreased = true;
             }
         }
 
-        // Equipar chapéu de chefe de guerra (aumento de dano)
+        // Equipar amuleto de aumento de dano
         if(Input.GetKeyDown(KeyCode.Alpha2)){
             AmuletOfVelocityEquipped = false;
             AmuletOfDamageIncreaseEquipped = true;
             AmuletOfFLCostReductionEquipped = false;
+            AmuletOfHPIncreaseEquipped = false;
             if (AmuletOfDamageIncrease && AmuletOfDamageIncreaseEquipped){
                 damageEnemy.damage *= 2;
             }
         }
 
-        // Equipar chapéu de mineiro (redução do custo de FL)
+        // Equipar amuleto de redução do custo de FL
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             AmuletOfVelocityEquipped = false;
             AmuletOfDamageIncreaseEquipped = false;
             AmuletOfFLCostReductionEquipped = true;
+            AmuletOfHPIncreaseEquipped = false;
             if (AmuletOfFLCostReduction && AmuletOfFLCostReductionEquipped)
             {
                 reduceCost = true;
+            }
+        }
+
+        // Equipar amuleto de aumento de HP
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            AmuletOfVelocityEquipped = false;
+            AmuletOfDamageIncreaseEquipped = false;
+            AmuletOfFLCostReductionEquipped = false;
+            AmuletOfHPIncreaseEquipped = true;
+            if (AmuletOfHPIncrease && AmuletOfHPIncreaseEquipped)
+            {
+                increaseHP = true;
             }
         }
     }

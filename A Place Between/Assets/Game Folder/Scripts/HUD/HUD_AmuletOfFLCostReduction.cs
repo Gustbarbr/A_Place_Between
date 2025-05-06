@@ -8,6 +8,7 @@ public class HUD_AmuletOfFLCostReduction : MonoBehaviour
     private Animator animator;
     PlayerControl player;
     public Image imagemHUD;
+    bool equipped = false;
 
     void Start()
     {
@@ -19,13 +20,26 @@ public class HUD_AmuletOfFLCostReduction : MonoBehaviour
 
     void Update()
     {
-        if (player.AmuletOfFLCostReduction)
+        if (player.AmuletOfFLCostReductionEquipped && equipped == false)
         {
-            imagemHUD.enabled = true;
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                animator.SetBool("ChangeAmulet", true);
-            }
+            animator.SetTrigger("EquipAmulet");
+            equipped = true;
         }
+
+        else if (!player.AmuletOfFLCostReductionEquipped && equipped == true)
+        {
+            animator.SetTrigger("UnequipAmulet");
+            equipped = false;
+        }
+    }
+
+    public void ShowImage()
+    {
+        imagemHUD.enabled = true;
+    }
+
+    public void HideImage()
+    {
+        imagemHUD.enabled = false;
     }
 }
