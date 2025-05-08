@@ -31,5 +31,12 @@ public class EnemyControl : MonoBehaviour
             // Faz o inimigo perseguir o player, usando sua posicao e a posicao do player como base
             transform.position = Vector3.MoveTowards(transform.position, targetPlayer.position, velocity);
         }
+
+        if(targetPlayer.position.x < transform.position.x){
+            transform.localScale = new Vector3(-1, 1, 1); // Vira para a esquerda
+        } else {
+            transform.localScale = new Vector3(1, 1, 1);  // Vira para a direita
+        }
+        
     }
 }
