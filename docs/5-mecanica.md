@@ -27,7 +27,7 @@
     * Ao ligar a lanterna, a barra de FL será lentamente gasta, e quaisquer inimigos presentes no raio da luz da lanter serão prejudicados de diversas formas, e isso é a depender do tipo do inimigo.
     * Após receber dano, a barra de HP será modificada para exibir o dano e com o passar do tempo ela irá se regenerar automaticamente.
     * Ao derrotar os chefes A e B, cada um deixará uma metade do amuleto cair, que será coletada automaticamente. No chefe C esse amuleto pode ser equipado ou não.
-    * Ao coletar a munição, uma quantia aleatória de balas será adicionada ao inventário. Para pistola será entre 5 e 15, para escopeta será entre 3 e 7.
+    * Ao coletar a munição, uma quantia aleatória de balas será adicionada ao inventário. Para pistola será entre 5 e 15.
     * Os chapéus estarão na parte mais aberta do mapa, em locais com mais inimigos, e cada um terá uma habilidade diferente, sendo as seguintes: aumento de velocidade, aumento de dano e redução do gasto de FL ao usar a lanterna.
 
 - Quais os recursos do jogo?
