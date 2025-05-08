@@ -20,15 +20,15 @@ public class HUD_AmuletOfFLCostReduction : MonoBehaviour
 
     void Update()
     {
-        if (player.AmuletOfFLCostReductionEquipped && equipped == false)
+        if (player.AmuletOfFLCostReduction && player.AmuletOfFLCostReductionEquipped && equipped == false)
         {
-            animator.SetTrigger("EquipAmulet");
+            animator.SetTrigger("EquipAmuletOfFLCostReduction");
             equipped = true;
         }
 
         else if (!player.AmuletOfFLCostReductionEquipped && equipped == true)
         {
-            animator.SetTrigger("UnequipAmulet");
+            animator.SetTrigger("UnequipAmuletOfFLCostReduction");
             equipped = false;
         }
     }

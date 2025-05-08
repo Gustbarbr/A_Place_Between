@@ -85,7 +85,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: UnequipAmulet
+    m_ConditionEvent: UnequipAmuletOfFLCostReduction
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7429493380635048421}
@@ -110,13 +110,13 @@ AnimatorController:
   m_Name: Border
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: EquipAmulet
+  - m_Name: EquipAmuletOfFLCostReduction
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: UnequipAmulet
+  - m_Name: UnequipAmuletOfFLCostReduction
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -172,7 +172,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: EquipAmulet
+    m_ConditionEvent: EquipAmuletOfFLCostReduction
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8315194830755988028}

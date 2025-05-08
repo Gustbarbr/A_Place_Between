@@ -8,6 +8,7 @@ public class HUD_AmuletOfHPIncrease : MonoBehaviour
     private Animator animator;
     PlayerControl player;
     public Image imagemHUD;
+    bool equipped = false;
 
     void Start()
     {
@@ -19,17 +20,26 @@ public class HUD_AmuletOfHPIncrease : MonoBehaviour
 
     void Update()
     {
-        if (player.AmuletOfHPIncrease)
+        if (player.AmuletOfHPIncrease && player.AmuletOfHPIncreaseEquipped && equipped == false)
         {
-            imagemHUD.enabled = true;
-            if (player.AmuletOfHPIncreaseEquipped)
-            {
-                animator.SetBool("EquipAmulet", true);
-            }
+            animator.SetTrigger("EquipAmuletOfHPIncrease");
+            equipped = true;
         }
-        else if (!player.AmuletOfHPIncreaseEquipped)
+
+        else if (!player.AmuletOfHPIncreaseEquipped && equipped == true)
         {
-            imagemHUD.enabled = false;
+            animator.SetTrigger("UnequipAmuletOfHPIncrease");
+            equipped = false;
         }
+    }
+
+    public void ShowImage()
+    {
+        imagemHUD.enabled = true;
+    }
+
+    public void HideImage()
+    {
+        imagemHUD.enabled = false;
     }
 }
