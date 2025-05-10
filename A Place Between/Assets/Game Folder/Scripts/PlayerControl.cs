@@ -15,6 +15,9 @@ public class PlayerControl : MonoBehaviour
     public AudioClip lanternaOnSound;
     public AudioClip lanternaOffSound;
 
+    public float healthRegen;
+    public float healthRegenCooldown = 10;
+
     // Movimentacao
     float movementSpeed = 3;
     [HideInInspector] public bool walk;
@@ -67,6 +70,8 @@ public class PlayerControl : MonoBehaviour
 
         // Movimenta o player
         MovePlayer();
+
+        HealthRegeneration();
 
         Die();
 
@@ -194,6 +199,15 @@ public class PlayerControl : MonoBehaviour
 
         // Reseta o tempo de recarga do ataque
         attackTimer = 0;
+    }
+
+    void HealthRegeneration()
+    {
+        healthRegen += Time.deltaTime;
+        if (healthRegen >= healthRegenCooldown)
+        {
+            hpSlider.value += Time.deltaTime * 0.1f;
+        }
     }
 
     void Die()

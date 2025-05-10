@@ -30,6 +30,8 @@ public class DarkEaterAttack : MonoBehaviour
             else if (player.increaseHP == true)
                 player.hpSlider.value -= 0.1f;
 
+            player.healthRegen = 0;
+
             attackTimer = 0;
         }
 
