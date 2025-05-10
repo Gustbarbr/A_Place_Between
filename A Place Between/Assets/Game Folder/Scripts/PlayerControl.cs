@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerControl : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator animator;
     DamageOnEnemy damageEnemy;
+    Light2D light2d;
 
 
     AudioSource audioSource;
@@ -60,6 +62,7 @@ public class PlayerControl : MonoBehaviour
         animator = GetComponent<Animator>();
         damageEnemy = FindObjectOfType<DamageOnEnemy>();
         audioSource = GetComponent<AudioSource>();
+        light2d = flashlight.GetComponent<Light2D>();
         flashlight.gameObject.SetActive(false);
     }
 
@@ -126,6 +129,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && flashlightSlider.value >= 0.1f && flashlight.gameObject.activeSelf == false)
         {
             flashlight.gameObject.SetActive(true);
+            
             audioSource.clip = lanternaOnSound;
             audioSource.Play();
         }
@@ -141,18 +145,24 @@ public class PlayerControl : MonoBehaviour
         // Consome FL caso a lanterna esteja ligada
         if (flashlight.gameObject.activeSelf && !reduceCost)
         {
+            light2d.intensity -= Time.deltaTime * 0.1f;
             flashlightSlider.value -= Time.deltaTime / 10;
         }
 
         // Consome FL caso a lanterna esteja ligada
         else if (flashlight.gameObject.activeSelf && reduceCost)
         {
+            light2d.intensity -= Time.deltaTime * 0.05f;
             flashlightSlider.value -= Time.deltaTime / 20;
         }
 
         // Recupera FL automaticamente se a lanterna estiver desligada
         if (!flashlight.gameObject.activeSelf)
         {
+            if(light2d.intensity <= 1)
+            {
+                light2d.intensity += Time.deltaTime * 0.1f;
+            }
             flashlightSlider.value += Time.deltaTime * 0.1f;
         }
 
