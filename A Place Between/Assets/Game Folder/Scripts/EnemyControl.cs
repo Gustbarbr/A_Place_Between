@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyControl : MonoBehaviour
 {
     public Transform targetPlayer; // Guarda o player para persegui-lo
+    Animator animator;
     public float speed; // Guarda um dos multilicadores de velocidade
     public float detectionRange; // Alcance de deteccao para iniciar a perseguicao
 
@@ -14,6 +15,7 @@ public class EnemyControl : MonoBehaviour
     {
         GameObject playerObj = GameObject.FindWithTag("Player");
         targetPlayer = playerObj.transform;
+        animator = GetComponent<Animator>();
     }
 
 
@@ -32,11 +34,23 @@ public class EnemyControl : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, targetPlayer.position, velocity);
         }
 
-        if(targetPlayer.position.x < transform.position.x){
+        if (targetPlayer.position.x < transform.position.x && this.tag == "InvisibleEnemy")
+        {
             transform.localScale = new Vector3(-1, 1, 1); // Vira para a esquerda
-        } else {
+        } else if (targetPlayer.position.x > transform.position.x && this.tag == "InvisibleEnemy") {
             transform.localScale = new Vector3(1, 1, 1);  // Vira para a direita
         }
+
+        if (targetPlayer.position.x < transform.position.x && this.tag == "LoseHealthOnLight"){
+            transform.localScale = new Vector3(-7, 7, 7); // Vira para a esquerda
+        } else if (targetPlayer.position.x > transform.position.x && this.tag == "LoseHealthOnLight"){
+            transform.localScale = new Vector3(7, 7, 7);  // Vira para a direita
+        }
         
+    }
+
+    public void StopAttack()
+    {
+        animator.SetBool("Attack", false);
     }
 }

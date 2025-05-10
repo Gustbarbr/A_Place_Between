@@ -2,22 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LurkerAttack : MonoBehaviour
+public class DarkEaterAttack : MonoBehaviour
 {
     PlayerControl player;
+    Animator animator;
     float attackCooldown = 1;
     public float attackTimer;
 
-    void Start(){
+    void Start()
+    {
         player = FindObjectOfType<PlayerControl>();
+        animator = GetComponentInParent<Animator>();
     }
 
-    void Update(){
+    void Update()
+    {
         attackTimer += Time.deltaTime;
     }
 
-    void OnTriggerEnter2D(Collider2D collider){
-        if(collider.CompareTag("Player") && attackTimer >= attackCooldown){
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.CompareTag("Player") && attackTimer >= attackCooldown)
+        {
 
             if (player.increaseHP == false)
                 player.hpSlider.value -= 0.2f;
@@ -26,5 +32,6 @@ public class LurkerAttack : MonoBehaviour
 
             attackTimer = 0;
         }
+
     }
 }

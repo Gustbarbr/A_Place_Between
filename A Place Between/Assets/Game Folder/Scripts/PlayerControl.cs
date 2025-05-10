@@ -9,13 +9,19 @@ public class PlayerControl : MonoBehaviour
     Animator animator;
     DamageOnEnemy damageEnemy;
 
+
+    AudioSource audioSource;
+    public AudioClip tiroSound;
+    public AudioClip lanternaOnSound;
+    public AudioClip lanternaOffSound;
+
     // Movimentacao
     float movementSpeed = 3;
     [HideInInspector] public bool walk;
     bool moveSpeedIncreased = false;
 
     public Slider hpSlider;
-    bool increaseHP = false;
+    [HideInInspector] public bool increaseHP = false;
 
     // Variavel para capturar o objeto "Flashlight"
     public Transform flashlight;
@@ -50,6 +56,7 @@ public class PlayerControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         damageEnemy = FindObjectOfType<DamageOnEnemy>();
+        audioSource = GetComponent<AudioSource>();
         flashlight.gameObject.SetActive(false);
     }
 
@@ -60,6 +67,8 @@ public class PlayerControl : MonoBehaviour
 
         // Movimenta o player
         MovePlayer();
+
+        Die();
 
         // Equipar o amuleto
         EquipAmulet();
@@ -112,12 +121,16 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && flashlightSlider.value >= 0.1f && flashlight.gameObject.activeSelf == false)
         {
             flashlight.gameObject.SetActive(true);
+            audioSource.clip = lanternaOnSound;
+            audioSource.Play();
         }
 
         // Desliga a lanterna se ela estiver ligada e o "Q" for pressionado ou se a barra de FL esvaziar
         else if (Input.GetKeyDown(KeyCode.Q) && flashlight.gameObject.activeSelf == true || flashlightSlider.value <= 0)
         {
             flashlight.gameObject.SetActive(false);
+            audioSource.clip = lanternaOffSound;
+            audioSource.Play();
         }
 
         // Consome FL caso a lanterna esteja ligada
@@ -176,14 +189,18 @@ public class PlayerControl : MonoBehaviour
         // Ajusta a velocidade diretamente na direcao do mouse
         bullet.velocity = fireDirection * projectileSpeed;  // Movimenta a bala com a velocidade m�xima na dire��o do mouse
 
+        audioSource.clip = tiroSound;
+        audioSource.Play();
+
         // Reseta o tempo de recarga do ataque
         attackTimer = 0;
+    }
 
-        if (increaseHP == false)
-            hpSlider.value -= 0.2f;
-
-        else if (increaseHP == true)
-            hpSlider.value -= 0.1f;
+    void Die()
+    {
+        if(hpSlider.value <= 0) { 
+            Destroy(this.gameObject);
+        }
     }
 
     void EquipAmulet()
