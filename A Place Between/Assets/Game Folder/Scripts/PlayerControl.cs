@@ -223,7 +223,7 @@ public class PlayerControl : MonoBehaviour
     void Die()
     {
         if(hpSlider.value < 0.2f) { 
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Death");
         }
     }
 
