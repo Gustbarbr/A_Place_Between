@@ -6,6 +6,11 @@ public class CameraController : MonoBehaviour
 {
 
     public Transform followPlayer; // Guarda o objeto do player
+
+    void Start(){
+        DontDestroyOnLoad(gameObject);    
+    }
+
     private void FixedUpdate()
     {
         // A posicao da camera eh igual a do player

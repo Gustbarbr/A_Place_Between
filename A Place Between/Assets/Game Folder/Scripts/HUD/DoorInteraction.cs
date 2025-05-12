@@ -6,7 +6,7 @@ public class DoorInteraction : MonoBehaviour
 {
     PlayerControl player;
     Animator animator;
-    bool doorOpen = true;
+    public bool doorOpen = true;
     bool playerInRange = false;
 
     void Start()

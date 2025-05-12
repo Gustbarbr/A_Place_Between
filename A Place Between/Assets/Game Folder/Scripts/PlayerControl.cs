@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -57,7 +58,6 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
-        // Guarda o componente RigidBody2D na variavel
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         damageEnemy = FindObjectOfType<DamageOnEnemy>();
@@ -222,8 +222,8 @@ public class PlayerControl : MonoBehaviour
 
     void Die()
     {
-        if(hpSlider.value <= 0) { 
-            Destroy(this.gameObject);
+        if(hpSlider.value < 0.2f) { 
+            SceneManager.LoadScene("Menu");
         }
     }
 
