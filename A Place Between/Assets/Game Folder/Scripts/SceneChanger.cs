@@ -10,12 +10,12 @@ public class SceneChanger : MonoBehaviour
     {
         player = FindObjectOfType<PlayerControl>();
         spawnPoint = GameObject.Find("SpawnPoint")?.transform;
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
 
-    void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (SceneManager.GetActiveScene().name == "Outside" && player != null && spawnPoint != null)
+        {
+            player.transform.position = spawnPoint.position;
+            Debug.Log("Player movido para o SpawnPoint");
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -33,14 +33,6 @@ public class SceneChanger : MonoBehaviour
         else if (collider.CompareTag("Player") && SceneManager.GetActiveScene().name == "Floresta")
         {
             SceneManager.LoadScene("Boss2");
-        }
-    }
-
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (spawnPoint != null)
-        {
-            player.transform.position = spawnPoint.position;
         }
     }
 }
