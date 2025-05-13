@@ -20,15 +20,25 @@ public class SceneChanger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Player"))
+        if (collider.CompareTag("Player") && SceneManager.GetActiveScene().name == "Hospital")
         {
             SceneManager.LoadScene("Outside");
+        }
+
+        else if (collider.CompareTag("Player") && SceneManager.GetActiveScene().name == "Outside")
+        {
+            SceneManager.LoadScene("Floresta");
+        }
+
+        else if (collider.CompareTag("Player") && SceneManager.GetActiveScene().name == "Floresta")
+        {
+            SceneManager.LoadScene("Boss2");
         }
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "Outside" && spawnPoint != null)
+        if (spawnPoint != null)
         {
             player.transform.position = spawnPoint.position;
         }

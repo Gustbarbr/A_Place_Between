@@ -5,20 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class DontDestroyPlayer : MonoBehaviour
 {
-    private Scene currentScene;
-
-    void Start()
+    private void Awake()
     {
-        currentScene = SceneManager.GetActiveScene();
+        DontDestroyOnLoad(gameObject); // Garante que o objeto persista entre cenas
+    }
 
-        if (currentScene.name == "Menu")
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded; // Escuta o carregamento de cenas
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded; // Evita vazamento de eventos
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Destroi o jogador se a cena atual for Menu ou Death
+        if (scene.name == "Menu" || scene.name == "Death")
         {
             Destroy(gameObject);
         }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
     }
-
 }
