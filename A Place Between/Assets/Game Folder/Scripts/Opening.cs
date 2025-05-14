@@ -9,7 +9,9 @@ public class Opening : MonoBehaviour
 
     void Start()
     {
-        startTime = Time.time;             // Marca o tempo de início
+        GameObject mainCamera = GameObject.Find("Main Camera");
+        GameObject.Destroy(mainCamera);
+        startTime = Time.time;
     }
 
     void Update()

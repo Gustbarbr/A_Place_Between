@@ -14,6 +14,7 @@ public class PlayerControl : MonoBehaviour
 
 
     AudioSource audioSource;
+
     public AudioClip tiroSound;
     public AudioClip lanternaOnSound;
     public AudioClip lanternaOffSound;
@@ -39,7 +40,6 @@ public class PlayerControl : MonoBehaviour
     float attackTimer;
     float projectileSpeed = 50f;
     public int ammunation = 10;
-
     public Slider flashlightSlider;
 
     // Flags do amuleto de velocidade
@@ -68,6 +68,25 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
+                //<ALAN> CODIGO ADICIONADO PARA FINS DE TESTE
+        //TODO APAGAR 
+        if (Input.GetKeyDown("o"))
+        {
+            SceneManager.LoadScene("Outside");
+        }
+
+        else if (Input.GetKeyDown(KeyCode.F2))
+        {
+            SceneManager.LoadScene("Floresta");
+        }
+
+        else if (Input.GetKeyDown(KeyCode.F3))
+        {
+            SceneManager.LoadScene("Boss2");
+        }
+        //</ALAN>
+
+
         // Cuida da posição do mouse e tudo relacionado a lanterna
         ViewAndLanternDirection();
 
@@ -222,8 +241,10 @@ public class PlayerControl : MonoBehaviour
 
     void Die()
     {
-        if(hpSlider.value < 0.2f) { 
-            SceneManager.LoadScene("Death");
+        if(hpSlider.value < 0.2f || Input.GetKeyDown("k")) { 
+            
+            SceneManager.LoadScene("Opening");
+            //SceneManager.LoadScene("Death");
         }
     }
 
