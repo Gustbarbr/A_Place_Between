@@ -70,7 +70,7 @@ public class PlayerControl : MonoBehaviour
     {
                 //<ALAN> CODIGO ADICIONADO PARA FINS DE TESTE
         //TODO APAGAR 
-        if (Input.GetKeyDown("o"))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             SceneManager.LoadScene("Outside");
         }
