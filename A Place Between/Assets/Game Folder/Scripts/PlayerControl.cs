@@ -242,9 +242,13 @@ public class PlayerControl : MonoBehaviour
     void Die()
     {
         if(hpSlider.value < 0.2f || Input.GetKeyDown("k")) { 
-            
-            SceneManager.LoadScene("Opening");
-            //SceneManager.LoadScene("Death");
+            if (SceneManager.GetActiveScene().name == "Floresta"){
+                SceneManager.LoadScene("Death");
+            }
+            else{
+                SceneManager.LoadScene("Opening");
+            }
+
         }
     }
 
