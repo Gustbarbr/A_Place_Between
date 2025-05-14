@@ -9,6 +9,8 @@ TagManager:
   - InvisibleEnemy
   - Flashlight
   - LoseHealthOnLight
+  - Canvas
+  - DialogBox
   layers:
   - Default
   - TransparentFX

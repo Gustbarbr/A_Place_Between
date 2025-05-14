@@ -12,6 +12,8 @@ public class PlayerControl : MonoBehaviour
     DamageOnEnemy damageEnemy;
     Light2D light2d;
 
+    public bool gunInInventory = false;
+    public bool lanternInInventory = false;
 
     AudioSource audioSource;
 
@@ -55,6 +57,9 @@ public class PlayerControl : MonoBehaviour
     // Flags do amuleto de incremento de HP
     [HideInInspector] public bool AmuletOfHPIncrease = false;
     [HideInInspector] public bool AmuletOfHPIncreaseEquipped = false;
+
+    public bool SacredAmulet1 = false;
+    public bool SacredAmulet2 = false;
 
     void Start()
     {
@@ -107,7 +112,7 @@ public class PlayerControl : MonoBehaviour
         attackTimer += Time.deltaTime;
 
         // Se o botao for pressionado e o tempo de recarga ja passou, chama a funcao de disparo
-        if (fire && attackTimer >= attackCooldown && ammunation >= 1)
+        if (fire && attackTimer >= attackCooldown && ammunation >= 1 && gunInInventory)
         {
             Fire();
             ammunation -= 1;
@@ -145,7 +150,7 @@ public class PlayerControl : MonoBehaviour
         flashlight.up = direction;
 
         // A lanterna só liga se tiver com a barr de FL (FlashLight) 10% preenchida e se ela estiver desligada
-        if (Input.GetKeyDown(KeyCode.Q) && flashlightSlider.value >= 0.1f && flashlight.gameObject.activeSelf == false)
+        if (Input.GetKeyDown(KeyCode.Q) && lanternInInventory && flashlightSlider.value >= 0.1f && flashlight.gameObject.activeSelf == false)
         {
             flashlight.gameObject.SetActive(true);
             
@@ -154,7 +159,7 @@ public class PlayerControl : MonoBehaviour
         }
 
         // Desliga a lanterna se ela estiver ligada e o "Q" for pressionado ou se a barra de FL esvaziar
-        else if (Input.GetKeyDown(KeyCode.Q) && flashlight.gameObject.activeSelf == true || flashlightSlider.value <= 0)
+        else if (Input.GetKeyDown(KeyCode.Q) && lanternInInventory && flashlight.gameObject.activeSelf == true || flashlightSlider.value <= 0)
         {
             flashlight.gameObject.SetActive(false);
             audioSource.clip = lanternaOffSound;

@@ -323,7 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPlayer: {fileID: 0}
   speed: 2
-  detectionRange: 5
+  detectionRange: 10
   hp: 5
 --- !u!70 &121415478653997161
 CapsuleCollider2D:
