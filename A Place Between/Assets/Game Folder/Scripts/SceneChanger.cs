@@ -22,9 +22,9 @@ public class SceneChanger : MonoBehaviour
     {
         if (collider.CompareTag("Player") && SceneManager.GetActiveScene().name == "Hospital" )
         {
-            SceneManager.LoadScene("Outside");
+            SceneManager.LoadScene("Viatura");
         }
-
+        
         else if (collider.CompareTag("Player") && SceneManager.GetActiveScene().name == "Outside")
         {
             SceneManager.LoadScene("Floresta");
