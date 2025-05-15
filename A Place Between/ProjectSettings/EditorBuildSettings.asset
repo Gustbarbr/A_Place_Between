@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Viatura.unity
     guid: 8d9076c5f94622c4791cc5cc9dd9a7e9
+  - enabled: 1
+    path: Assets/Scenes/Final.unity
+    guid: 54385958de494fd4ca6dcb31c225cc22
   m_configObjects: {}

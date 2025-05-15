@@ -1,20 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
     EnemyControl enemy;
-    PlayerControl player;
 
-    void Starts(){
+    void Start() {
         enemy = GetComponent<EnemyControl>();
-        player = FindObjectOfType<PlayerControl>();
     }
 
     void Update() {
-        if(enemy.hp <= 0){
-           // player.SacredAmulet1 = true;
-        }
+        if (enemy.hp <= 0)
+            SceneManager.LoadScene("Final");
     }
 }
