@@ -11,6 +11,7 @@ TagManager:
   - LoseHealthOnLight
   - Canvas
   - DialogBox
+  - ReturnHospital
   layers:
   - Default
   - TransparentFX

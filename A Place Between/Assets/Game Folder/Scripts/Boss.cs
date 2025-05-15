@@ -14,7 +14,7 @@ public class Boss : MonoBehaviour
 
     void Update() {
         if(enemy.hp <= 0){
-            player.SacredAmulet1 = true;
+           // player.SacredAmulet1 = true;
         }
     }
 }
